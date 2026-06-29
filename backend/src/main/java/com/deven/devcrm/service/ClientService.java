@@ -82,7 +82,9 @@ public class ClientService {
                 client.getName(),
                 client.getEmail(),
                 client.getPhone(),
-                client.getCompanyName()
+                client.getCompanyName(),
+                client.getCreatedAt(),
+                client.getUpdatedAt()
         );
     }
 }

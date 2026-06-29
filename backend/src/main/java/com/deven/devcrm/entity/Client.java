@@ -1,6 +1,9 @@
 package com.deven.devcrm.entity;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name= "clients")
@@ -16,6 +19,9 @@ public class Client {
     private String phone;
     private String companyName;
 
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
     public Client() {
     }
 
@@ -24,6 +30,17 @@ public class Client {
         this.email = email;
         this.phone = phone;
         this.companyName = companyName;
+    }
+
+    @PrePersist // run automatically before saving a new record
+    public void beforeCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate  //  run automatically before updating an existing record
+    public void beforeUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -46,6 +63,14 @@ public class Client {
         return companyName;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -64,5 +89,13 @@ public class Client {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

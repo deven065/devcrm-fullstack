@@ -1,4 +1,8 @@
 package com.deven.devcrm.entity;
 
-public class ProjectStatus {
+public enum ProjectStatus {
+    PLANNING,
+    ACTIVE,
+    ON_HOLD,
+    COMPLETED
 }

@@ -2,6 +2,10 @@
 
 package com.deven.devcrm.dto;
 
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDateTime;
+
 public class ClientResponse {
 
     private Long id;
@@ -9,13 +13,17 @@ public class ClientResponse {
     private String email;
     private String phone;
     private String companyName;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public ClientResponse(Long id, String name, String email, String phone, String companyName) {
+    public ClientResponse(Long id, String name, String email, String phone, String companyName, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.companyName = companyName;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Long getId() {
@@ -36,5 +44,13 @@ public class ClientResponse {
 
     public String getCompanyName() {
         return companyName;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 }

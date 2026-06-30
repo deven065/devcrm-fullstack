@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController //  This class will handle API requests and returns data as response
 @RequestMapping("/api/clients") //  This sets the base URL for this controller
+@CrossOrigin(origins = "http://localhost:5173") //  This allows cross-origin requests from the specified origin
 public class ClientController {
 
     private final ClientService clientService;  //  final means once clientService is assigned, it cannot be changed
